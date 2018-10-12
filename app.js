@@ -8,13 +8,14 @@ const methodOverride = require('method-override');
 const upload = require('express-fileupload');
 const session = require('express-session');
 const flash = require('connect-flash');
+const {mongoDbUrl} = require('./config/database');
 const passport = require('passport');
 
 
 
 
 
-mongoose.connect('mongodb://localhost:27017/cms', {useNewUrlParser: true}).then(db => {
+mongoose.connect(mongoDbUrl, {useNewUrlParser: true}).then(db => {
 	console.log('Connection to the database was successfull');
 }).catch(error => console.log(error));
 

@@ -1,6 +1,7 @@
-module.exports = {
+if(process.env.NODE_ENV === 'production'){
 
+    module.exports = require('./prod-database');
 
-	mongoDbUrl: 'mongodb://localhost:27017/cms';
-
-};
+} else {
+    module.exports = require('./dev-database');
+}
